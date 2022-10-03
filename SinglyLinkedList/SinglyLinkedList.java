@@ -1,13 +1,10 @@
-class Node{
-  int data;
-  Node next;
+import Node.*;
 
-  Node(int data){
-    this.data=data;
-    this.next=null;
-  }
+class SinglyLinkedList{
 
-  static void insert(Node head, Node node){
+  Node head;
+  
+  void insert(Node node){
     if(head==null){
       head=node;
     }
@@ -20,23 +17,22 @@ class Node{
     }
   }
 
-  static void displayList(Node head){
+  void displayList(){
     Node ptr=head;
     while(ptr!=null){
       System.out.print(ptr.data+" ");
       ptr=ptr.next;
     }
   }
-}
-
-class SinglyLinkedList{
   public static void main(String args[]){
     Node head = new Node(0);
+    SinglyLinkedList sll = new SinglyLinkedList();
+    sll.head=head;
 
     for(int i=1;i<=5;i++){
-      Node.insert(head,new Node(i));
+      sll.insert(new Node(i));
     }
 
-    Node.displayList(head);
+    sll.displayList();
   }
 }
